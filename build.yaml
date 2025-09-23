@@ -1,0 +1,30 @@
+targets:
+  $default:
+    builders:
+      riverpod_generator:
+        generate_for:
+          - lib/**
+        options:
+          data_class_prefix: _
+      json_serializable:
+        generate_for:
+          - lib/**
+        options:
+          explicit_to_json: true
+          field_rename: snake
+          checked: true
+          create_factory: true
+          create_to_json: true
+          include_if_null: false
+      hive_generator:
+        generate_for:
+          - lib/**
+      isar_generator:
+        generate_for:
+          - lib/**
+      retrofit_generator:
+        generate_for:
+          - lib/**
+        options:
+          wrapper_type: "ApiResponse"
+          wrapper_type_generic: true
