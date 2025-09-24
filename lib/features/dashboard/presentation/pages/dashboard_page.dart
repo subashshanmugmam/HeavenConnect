@@ -89,7 +89,9 @@ class _DashboardPageState extends State<DashboardPage> {
                   children: [
                     Text(
                       'Welcome back!',
-                      style: Theme.of(context).textTheme.headlineSmall
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
@@ -98,7 +100,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 16),
-                    Row(
+                    const Row(
                       children: [
                         Expanded(
                           child: _StatCard(
@@ -108,7 +110,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             color: Colors.green,
                           ),
                         ),
-                        const SizedBox(width: 16),
+                        SizedBox(width: 16),
                         Expanded(
                           child: _StatCard(
                             title: 'Community Points',
@@ -173,7 +175,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.green.shade100,
-                      child: Icon(Icons.eco, color: Colors.green),
+                      child: const Icon(Icons.eco, color: Colors.green),
                     ),
                     title: Text('Activity ${index + 1}'),
                     subtitle: const Text('Recent community activity'),
@@ -282,7 +284,7 @@ class _StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -292,9 +294,9 @@ class _StatCard extends StatelessWidget {
           Text(
             value,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: color,
-            ),
+                  fontWeight: FontWeight.bold,
+                  color: color,
+                ),
           ),
           Text(
             title,

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../constants/app_constants.dart';
 import 'route_guards.dart';
-import '../../shared/providers/app_providers.dart';
 import '../../features/authentication/presentation/pages/login_screen.dart';
 
 part 'app_router.g.dart';
@@ -37,7 +35,7 @@ GoRouter goRouter(GoRouterRef ref) {
         name: 'register',
         builder: (context, state) => const RegisterScreen(),
       ),
-      
+
       // Protected Routes with Shell
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => AppShell(
@@ -54,7 +52,7 @@ GoRouter goRouter(GoRouterRef ref) {
               ),
             ],
           ),
-          
+
           // Resources Branch
           StatefulShellBranch(
             routes: [
@@ -80,7 +78,7 @@ GoRouter goRouter(GoRouterRef ref) {
               ),
             ],
           ),
-          
+
           // Map Branch
           StatefulShellBranch(
             routes: [
@@ -91,7 +89,7 @@ GoRouter goRouter(GoRouterRef ref) {
               ),
             ],
           ),
-          
+
           // Chat Branch
           StatefulShellBranch(
             routes: [
@@ -112,7 +110,7 @@ GoRouter goRouter(GoRouterRef ref) {
               ),
             ],
           ),
-          
+
           // Profile Branch
           StatefulShellBranch(
             routes: [
@@ -137,7 +135,7 @@ GoRouter goRouter(GoRouterRef ref) {
           ),
         ],
       ),
-      
+
       // Error Routes
       GoRoute(
         path: RouteNames.notFound,

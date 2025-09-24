@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const String fontFamily = 'Inter';
-  
+
   // Color Palette
   static const Color primaryColor = Color(0xFF6366F1);
   static const Color primaryVariant = Color(0xFF4F46E5);
@@ -15,16 +15,16 @@ class AppTheme {
   static const Color warningColor = Color(0xFFF59E0B);
   static const Color successColor = Color(0xFF10B981);
   static const Color infoColor = Color(0xFF3B82F6);
-  
+
   // Text Colors
   static const Color textPrimary = Color(0xFF1F2937);
   static const Color textSecondary = Color(0xFF6B7280);
   static const Color textDisabled = Color(0xFF9CA3AF);
-  
+
   // Border Colors
   static const Color borderColor = Color(0xFFE5E7EB);
   static const Color borderColorDark = Color(0xFFD1D5DB);
-  
+
   // Shadow Colors
   static const Color shadowColor = Color(0x1A000000);
 
@@ -135,8 +135,9 @@ class AppTheme {
   // Text Theme
   static TextTheme _buildTextTheme({bool isDark = false}) {
     final Color textColor = isDark ? const Color(0xFFF1F5F9) : textPrimary;
-    final Color secondaryTextColor = isDark ? const Color(0xFFCBD5E1) : textSecondary;
-    
+    final Color secondaryTextColor =
+        isDark ? const Color(0xFFCBD5E1) : textSecondary;
+
     return GoogleFonts.interTextTheme().copyWith(
       displayLarge: GoogleFonts.inter(
         fontSize: 57,
@@ -232,7 +233,8 @@ class AppTheme {
   }
 
   // Component Themes
-  static ElevatedButtonThemeData _buildElevatedButtonTheme({bool isDark = false}) {
+  static ElevatedButtonThemeData _buildElevatedButtonTheme(
+      {bool isDark = false}) {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 2,
@@ -251,7 +253,8 @@ class AppTheme {
     );
   }
 
-  static OutlinedButtonThemeData _buildOutlinedButtonTheme({bool isDark = false}) {
+  static OutlinedButtonThemeData _buildOutlinedButtonTheme(
+      {bool isDark = false}) {
     return OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -303,7 +306,8 @@ class AppTheme {
     );
   }
 
-  static InputDecorationTheme _buildInputDecorationTheme({bool isDark = false}) {
+  static InputDecorationTheme _buildInputDecorationTheme(
+      {bool isDark = false}) {
     return InputDecorationTheme(
       filled: true,
       fillColor: isDark ? const Color(0xFF334155) : const Color(0xFFF8FAFC),
@@ -375,7 +379,8 @@ class AppTheme {
     );
   }
 
-  static BottomNavigationBarThemeData _buildBottomNavigationBarTheme({bool isDark = false}) {
+  static BottomNavigationBarThemeData _buildBottomNavigationBarTheme(
+      {bool isDark = false}) {
     return BottomNavigationBarThemeData(
       backgroundColor: isDark ? const Color(0xFF1E293B) : surfaceColor,
       selectedItemColor: primaryColor,
@@ -393,20 +398,22 @@ class AppTheme {
     );
   }
 
-  static FloatingActionButtonThemeData _buildFloatingActionButtonTheme({bool isDark = false}) {
-    return FloatingActionButtonThemeData(
+  static FloatingActionButtonThemeData _buildFloatingActionButtonTheme(
+      {bool isDark = false}) {
+    return const FloatingActionButtonThemeData(
       backgroundColor: primaryColor,
       foregroundColor: Colors.white,
       elevation: 6,
-      shape: const CircleBorder(),
+      shape: CircleBorder(),
     );
   }
 
   static ChipThemeData _buildChipTheme({bool isDark = false}) {
     return ChipThemeData(
-      backgroundColor: isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9),
-      selectedColor: primaryColor.withOpacity(0.12),
-      secondarySelectedColor: secondaryColor.withOpacity(0.12),
+      backgroundColor:
+          isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9),
+      selectedColor: primaryColor.withValues(alpha: 0.12),
+      secondarySelectedColor: secondaryColor.withValues(alpha: 0.12),
       labelStyle: GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.w500,
@@ -446,7 +453,8 @@ class AppTheme {
 
   static SnackBarThemeData _buildSnackBarTheme({bool isDark = false}) {
     return SnackBarThemeData(
-      backgroundColor: isDark ? const Color(0xFF374151) : const Color(0xFF1F2937),
+      backgroundColor:
+          isDark ? const Color(0xFF374151) : const Color(0xFF1F2937),
       contentTextStyle: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.w400,
@@ -480,9 +488,9 @@ class AppTheme {
         fontSize: 14,
         fontWeight: FontWeight.w400,
       ),
-      indicator: UnderlineTabIndicator(
-        borderSide: const BorderSide(color: primaryColor, width: 2),
-        insets: const EdgeInsets.symmetric(horizontal: 16),
+      indicator: const UnderlineTabIndicator(
+        borderSide: BorderSide(color: primaryColor, width: 2),
+        insets: EdgeInsets.symmetric(horizontal: 16),
       ),
       indicatorSize: TabBarIndicatorSize.tab,
     );
@@ -500,10 +508,11 @@ class AppTheme {
     );
   }
 
-  static NavigationBarThemeData _buildNavigationBarTheme({bool isDark = false}) {
+  static NavigationBarThemeData _buildNavigationBarTheme(
+      {bool isDark = false}) {
     return NavigationBarThemeData(
       backgroundColor: isDark ? const Color(0xFF1E293B) : surfaceColor,
-      indicatorColor: primaryColor.withOpacity(0.12),
+      indicatorColor: primaryColor.withValues(alpha: 0.12),
       elevation: 8,
       height: 80,
       labelTextStyle: WidgetStateProperty.resolveWith((states) {
@@ -606,7 +615,7 @@ class AppTheme {
       activeTrackColor: primaryColor,
       inactiveTrackColor: isDark ? const Color(0xFF475569) : borderColor,
       thumbColor: primaryColor,
-      overlayColor: primaryColor.withOpacity(0.12),
+      overlayColor: primaryColor.withValues(alpha: 0.12),
       valueIndicatorColor: primaryColor,
       valueIndicatorTextStyle: GoogleFonts.inter(
         fontSize: 12,
@@ -616,7 +625,8 @@ class AppTheme {
     );
   }
 
-  static ProgressIndicatorThemeData _buildProgressIndicatorTheme({bool isDark = false}) {
+  static ProgressIndicatorThemeData _buildProgressIndicatorTheme(
+      {bool isDark = false}) {
     return const ProgressIndicatorThemeData(
       color: primaryColor,
       linearTrackColor: borderColor,

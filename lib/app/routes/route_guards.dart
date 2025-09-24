@@ -7,10 +7,10 @@ import '../../shared/providers/app_providers.dart';
 import '../../shared/models/user_model.dart';
 import '../../shared/widgets/app_shell.dart';
 import '../../features/authentication/presentation/pages/login_screen.dart';
-import '../../features/authentication/presentation/pages/register_screen.dart';
 
 class AuthGuard {
-  static FutureOr<String?> redirect(BuildContext context, GoRouterState state, WidgetRef ref) {
+  static FutureOr<String?> redirect(
+      BuildContext context, GoRouterState state, WidgetRef ref) {
     final authState = ref.read(authenticationStateProvider);
     final currentLocation = state.uri.toString();
 
@@ -35,9 +35,8 @@ class AuthGuard {
     ];
 
     // Check if current route is public
-    final isPublicRoute = publicRoutes.any((route) => 
-      currentLocation.startsWith(route) || currentLocation == route
-    );
+    final isPublicRoute = publicRoutes.any((route) =>
+        currentLocation.startsWith(route) || currentLocation == route);
 
     // If loading, show splash
     if (authState.isLoading) {
@@ -45,8 +44,9 @@ class AuthGuard {
     }
 
     // If onboarding not completed and trying to access protected route
-    if (!authState.isOnboardingCompleted && 
-        onboardingRequiredRoutes.any((route) => currentLocation.startsWith(route))) {
+    if (!authState.isOnboardingCompleted &&
+        onboardingRequiredRoutes
+            .any((route) => currentLocation.startsWith(route))) {
       return RouteNames.onboarding;
     }
 
@@ -56,9 +56,9 @@ class AuthGuard {
     }
 
     // If authenticated and trying to access auth routes, redirect to dashboard
-    if (authState.isAuthenticated && 
-        authState.isOnboardingCompleted && 
-        isPublicRoute && 
+    if (authState.isAuthenticated &&
+        authState.isOnboardingCompleted &&
+        isPublicRoute &&
         currentLocation != RouteNames.splash) {
       return RouteNames.dashboard;
     }
@@ -69,12 +69,14 @@ class AuthGuard {
 }
 
 class OnboardingGuard {
-  static FutureOr<String?> redirect(BuildContext context, GoRouterState state, WidgetRef ref) {
+  static FutureOr<String?> redirect(
+      BuildContext context, GoRouterState state, WidgetRef ref) {
     final appState = ref.read(appStateProvider);
     final currentLocation = state.uri.toString();
 
     // If onboarding not completed and not on onboarding page
-    if (!appState.isOnboardingCompleted && currentLocation != RouteNames.onboarding) {
+    if (!appState.isOnboardingCompleted &&
+        currentLocation != RouteNames.onboarding) {
       return RouteNames.onboarding;
     }
 
@@ -83,11 +85,12 @@ class OnboardingGuard {
 }
 
 class AdminGuard {
-  static FutureOr<String?> redirect(BuildContext context, GoRouterState state, WidgetRef ref) {
+  static FutureOr<String?> redirect(
+      BuildContext context, GoRouterState state, WidgetRef ref) {
     final authState = ref.read(authenticationStateProvider);
-    
+
     // Check if user has admin role
-    if (authState.user?.role != UserRole.admin && 
+    if (authState.user?.role != UserRole.admin &&
         authState.user?.role != UserRole.superAdmin) {
       return RouteNames.dashboard;
     }
@@ -120,7 +123,7 @@ class RouteGuards {
         name: 'register',
         builder: (context, state) => const RegisterScreen(),
       ),
-      
+
       // Protected Routes with Shell
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => AppShell(
@@ -137,7 +140,7 @@ class RouteGuards {
               ),
             ],
           ),
-          
+
           // Resources Branch
           StatefulShellBranch(
             routes: [
@@ -163,7 +166,7 @@ class RouteGuards {
               ),
             ],
           ),
-          
+
           // Map Branch
           StatefulShellBranch(
             routes: [
@@ -174,7 +177,7 @@ class RouteGuards {
               ),
             ],
           ),
-          
+
           // Chat Branch
           StatefulShellBranch(
             routes: [
@@ -195,7 +198,7 @@ class RouteGuards {
               ),
             ],
           ),
-          
+
           // Profile Branch
           StatefulShellBranch(
             routes: [
@@ -305,7 +308,7 @@ class AddResourceScreen extends StatelessWidget {
 
 class ResourceDetailsScreen extends StatelessWidget {
   final String resourceId;
-  
+
   const ResourceDetailsScreen({super.key, required this.resourceId});
 
   @override
@@ -346,7 +349,7 @@ class ChatListScreen extends StatelessWidget {
 
 class ChatDetailsScreen extends StatelessWidget {
   final String chatId;
-  
+
   const ChatDetailsScreen({super.key, required this.chatId});
 
   @override

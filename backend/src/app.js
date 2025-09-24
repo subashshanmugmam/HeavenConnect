@@ -12,10 +12,10 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 // Import configurations and middleware
-import { connectDB } from './config/database.js';
-import { connectRedis } from './config/redis.js';
+// import { connectDB } from './config/database.js';
+// import { connectRedis } from './config/redis.js';
 import logger from './utils/logger.js';
-import { initializeModels } from './models/index.js';
+// import { initializeModels } from './models/index.js';
 
 // Import middleware
 import { errorHandler } from './middleware/errorHandler.js';
@@ -25,21 +25,22 @@ import { validateRequest } from './middleware/validation.js';
 
 // Import routes
 import authRoutes from './routes/auth.js';
-import userRoutes from './routes/users.js';
-import resourceRoutes from './routes/resources.js';
-import bookingRoutes from './routes/bookings.js';
-import communityRoutes from './routes/communities.js';
-import membershipRoutes from './routes/memberships.js';
-import iotRoutes from './routes/iot.js';
-import transactionRoutes from './routes/transactions.js';
-import messageRoutes from './routes/messages.js';
-import reviewRoutes from './routes/reviews.js';
-import analyticsRoutes from './routes/analytics.js';
-import paymentRoutes from './routes/payments.js';
-import notificationRoutes from './routes/notifications.js';
-import uploadRoutes from './routes/uploads.js';
-import webhookRoutes from './routes/webhooks.js';
-import adminRoutes from './routes/admin.js';
+// TODO: Uncomment these as we create the route files
+// import userRoutes from './routes/users.js';
+// import resourceRoutes from './routes/resources.js';
+// import bookingRoutes from './routes/bookings.js';
+// import communityRoutes from './routes/communities.js';
+// import membershipRoutes from './routes/memberships.js';
+// import iotRoutes from './routes/iot.js';
+// import transactionRoutes from './routes/transactions.js';
+// import messageRoutes from './routes/messages.js';
+// import reviewRoutes from './routes/reviews.js';
+// import analyticsRoutes from './routes/analytics.js';
+// import paymentRoutes from './routes/payments.js';
+// import notificationRoutes from './routes/notifications.js';
+// import uploadRoutes from './routes/uploads.js';
+// import webhookRoutes from './routes/webhooks.js';
+// import adminRoutes from './routes/admin.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -218,21 +219,22 @@ app.get('/api', (req, res) => {
 
 // Mount API routes
 app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/resources', resourceRoutes);
-app.use('/api/bookings', bookingRoutes);
-app.use('/api/communities', communityRoutes);
-app.use('/api/memberships', membershipRoutes);
-app.use('/api/iot', iotRoutes);
-app.use('/api/transactions', transactionRoutes);
-app.use('/api/messages', messageRoutes);
-app.use('/api/reviews', reviewRoutes);
-app.use('/api/analytics', analyticsRoutes);
-app.use('/api/payments', paymentRoutes);
-app.use('/api/notifications', notificationRoutes);
-app.use('/api/uploads', uploadRoutes);
-app.use('/api/webhooks', webhookRoutes);
-app.use('/api/admin', adminRoutes);
+// TODO: Uncomment these as we create the route files
+// app.use('/api/users', userRoutes);
+// app.use('/api/resources', resourceRoutes);
+// app.use('/api/bookings', bookingRoutes);
+// app.use('/api/communities', communityRoutes);
+// app.use('/api/memberships', membershipRoutes);
+// app.use('/api/iot', iotRoutes);
+// app.use('/api/transactions', transactionRoutes);
+// app.use('/api/messages', messageRoutes);
+// app.use('/api/reviews', reviewRoutes);
+// app.use('/api/analytics', analyticsRoutes);
+// app.use('/api/payments', paymentRoutes);
+// app.use('/api/notifications', notificationRoutes);
+// app.use('/api/uploads', uploadRoutes);
+// app.use('/api/webhooks', webhookRoutes);
+// app.use('/api/admin', adminRoutes);
 
 // Catch 404 errors
 app.use('/api/*', (req, res) => {
@@ -274,17 +276,17 @@ const initializeApp = async () => {
   try {
     logger.info('Starting HCSub API server...');
     
-    // Connect to MongoDB
-    await connectDB();
-    logger.info('✅ MongoDB connected successfully');
+    // Database connection handled by server.js
+    // await connectDB();
+    // logger.info('✅ MongoDB connected successfully');
     
-    // Connect to Redis
-    await connectRedis();
-    logger.info('✅ Redis connected successfully');
+    // Redis connection disabled for now
+    // await connectRedis();
+    // logger.info('✅ Redis connected successfully');
     
-    // Initialize database models
-    await initializeModels();
-    logger.info('✅ Database models initialized');
+    // Model initialization disabled for now
+    // await initializeModels();
+    // logger.info('✅ Database models initialized');
     
     // Start server
     const PORT = process.env.PORT || 5000;

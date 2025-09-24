@@ -347,7 +347,7 @@ final signOutProvider = AutoDisposeFutureProvider<void>.internal(
 );
 
 typedef SignOutRef = AutoDisposeFutureProviderRef<void>;
-String _$authNotifierHash() => r'd7f4e03f74d4209b440b157a7a4719a3be972a2a';
+String _$authNotifierHash() => r'0ed5b3207953d06dd58ba06141b606ce85a4c5de';
 
 /// See also [AuthNotifier].
 @ProviderFor(AuthNotifier)

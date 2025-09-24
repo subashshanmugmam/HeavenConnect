@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../data/repositories/auth_repository.dart';
 import '../../../../shared/models/user_model.dart';
@@ -6,13 +5,15 @@ import '../../../../shared/models/user_model.dart';
 part 'auth_providers.g.dart';
 
 @riverpod
-Future<void> signInWithEmail(SignInWithEmailRef ref, String email, String password) async {
+Future<void> signInWithEmail(
+    SignInWithEmailRef ref, String email, String password) async {
   final authRepo = ref.read(authRepositoryProvider);
   await authRepo.login(email, password);
 }
 
 @riverpod
-Future<void> registerWithEmail(RegisterWithEmailRef ref, String email, String password, String fullName) async {
+Future<void> registerWithEmail(RegisterWithEmailRef ref, String email,
+    String password, String fullName) async {
   final authRepo = ref.read(authRepositoryProvider);
   await authRepo.register(email, password, fullName);
 }

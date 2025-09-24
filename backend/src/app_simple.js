@@ -102,10 +102,15 @@ app.get('/api', (req, res) => {
     endpoints: {
       health: '/health',
       api: '/api',
+      auth: '/api/auth',
       docs: '/api/docs' // Will be implemented later
     }
   });
 });
+
+// Mount authentication routes
+import authRoutes from './routes/auth_test.js';
+app.use('/api/auth', authRoutes);
 
 // Handle undefined routes
 app.all('*', (req, res, next) => {
