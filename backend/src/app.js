@@ -25,22 +25,21 @@ import { validateRequest } from './middleware/validation.js';
 
 // Import routes
 import authRoutes from './routes/auth.js';
-// TODO: Uncomment these as we create the route files
-// import userRoutes from './routes/users.js';
-// import resourceRoutes from './routes/resources.js';
-// import bookingRoutes from './routes/bookings.js';
-// import communityRoutes from './routes/communities.js';
-// import membershipRoutes from './routes/memberships.js';
-// import iotRoutes from './routes/iot.js';
-// import transactionRoutes from './routes/transactions.js';
-// import messageRoutes from './routes/messages.js';
-// import reviewRoutes from './routes/reviews.js';
-// import analyticsRoutes from './routes/analytics.js';
-// import paymentRoutes from './routes/payments.js';
-// import notificationRoutes from './routes/notifications.js';
-// import uploadRoutes from './routes/uploads.js';
-// import webhookRoutes from './routes/webhooks.js';
-// import adminRoutes from './routes/admin.js';
+import userRoutes from './routes/users.js';
+import resourceRoutes from './routes/resources.js';
+import bookingRoutes from './routes/bookings.js';
+import communityRoutes from './routes/communities.js';
+import membershipRoutes from './routes/memberships.js';
+import iotRoutes from './routes/iot.js';
+import transactionRoutes from './routes/transactions.js';
+import messageRoutes from './routes/messages.js';
+import reviewRoutes from './routes/reviews.js';
+import analyticsRoutes from './routes/analytics.js';
+import paymentRoutes from './routes/payments.js';
+import notificationRoutes from './routes/notifications.js';
+import uploadRoutes from './routes/uploads.js';
+import webhookRoutes from './routes/webhooks.js';
+import adminRoutes from './routes/admin.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -219,22 +218,21 @@ app.get('/api', (req, res) => {
 
 // Mount API routes
 app.use('/api/auth', authRoutes);
-// TODO: Uncomment these as we create the route files
-// app.use('/api/users', userRoutes);
-// app.use('/api/resources', resourceRoutes);
-// app.use('/api/bookings', bookingRoutes);
-// app.use('/api/communities', communityRoutes);
-// app.use('/api/memberships', membershipRoutes);
-// app.use('/api/iot', iotRoutes);
-// app.use('/api/transactions', transactionRoutes);
-// app.use('/api/messages', messageRoutes);
-// app.use('/api/reviews', reviewRoutes);
-// app.use('/api/analytics', analyticsRoutes);
-// app.use('/api/payments', paymentRoutes);
-// app.use('/api/notifications', notificationRoutes);
-// app.use('/api/uploads', uploadRoutes);
-// app.use('/api/webhooks', webhookRoutes);
-// app.use('/api/admin', adminRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/resources', resourceRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/communities', communityRoutes);
+app.use('/api/memberships', membershipRoutes);
+app.use('/api/iot', iotRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/uploads', uploadRoutes);
+app.use('/api/webhooks', webhookRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Catch 404 errors
 app.use('/api/*', (req, res) => {

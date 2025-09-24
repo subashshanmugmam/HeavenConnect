@@ -172,12 +172,13 @@ class AuthRepositoryImpl implements AuthRepository {
       final bool isEnabled = await _biometricService.isBiometricEnabled();
       if (!isEnabled) {
         return AuthResult.failure(
-          message: 'Biometric authentication not enabled. Please enable it in settings.',
+          message:
+              'Biometric authentication not enabled. Please enable it in settings.',
           errorCode: 'biometric_not_enabled',
         );
       }
 
-      final Map<String, String>? credentials = 
+      final Map<String, String>? credentials =
           await _biometricService.authenticateWithBiometrics();
 
       if (credentials != null) {
@@ -244,7 +245,8 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   /// Helper method to enable biometric with credentials
-  Future<bool> enableBiometricWithCredentials(String email, String password) async {
+  Future<bool> enableBiometricWithCredentials(
+      String email, String password) async {
     try {
       return await _biometricService.enableBiometric(email, password);
     } catch (e) {

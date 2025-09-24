@@ -30,4 +30,10 @@ class AuthRepository {
     // Simulate checking login status
     return false;
   }
+
+  Future<void> signInWithBiometrics() async {
+    // Simulate biometric authentication
+    await Future.delayed(const Duration(seconds: 1));
+    // TODO: Implement actual biometric authentication logic
+  }
 }

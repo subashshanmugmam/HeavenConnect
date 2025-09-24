@@ -3,23 +3,27 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../constants/app_constants.dart';
-import 'route_guards.dart';
+import 'route_guards.dart'
+    hide OnboardingScreen, RegisterScreen, DashboardScreen;
+import 'route_widgets.dart';
 import '../../features/authentication/presentation/pages/login_screen.dart';
+import '../../features/dashboard/presentation/pages/modern_dashboard_page.dart';
 
 part 'app_router.g.dart';
 
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: RouteNames.splash,
+    initialLocation: RouteNames.login,
     debugLogDiagnostics: true,
     routes: [
       // Authentication Routes (Public)
-      GoRoute(
-        path: RouteNames.splash,
-        name: 'splash',
-        builder: (context, state) => const SplashScreen(),
-      ),
+      // Note: Splash screen is handled by AppInitializer, not routing
+      // GoRoute(
+      //   path: RouteNames.splash,
+      //   name: 'splash',
+      //   builder: (context, state) => const SplashScreen(),
+      // ),
       GoRoute(
         path: RouteNames.onboarding,
         name: 'onboarding',
@@ -48,7 +52,7 @@ GoRouter goRouter(GoRouterRef ref) {
               GoRoute(
                 path: RouteNames.dashboard,
                 name: 'dashboard',
-                builder: (context, state) => const DashboardScreen(),
+                builder: (context, state) => const ModernDashboardPage(),
               ),
             ],
           ),
